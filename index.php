@@ -2,21 +2,20 @@
 session_start();
 include_once './config/config.php';
 include_once './classes/Usuario.php';
+
 $usuario = new Usuario($db);
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['login'])) {
-        $email = $_POST['$email'];
-        $senha = $_POST['$senha'];
-        if ($dados_Usuario = $usuario->login(
-            $email,
-            $senha
-        )) {
+    if (isset($_POST['email'])) {
+        $email = $_POST['email'];
+        $senha = $_POST['senha'];
+        if ($dados_usuario = $usuario->login($email,$senha)) {
             $_SESSION['usuario_id'] =
-                $dados_Usuario['id'];
-            header('Location:portal.php');
+                $dados_usuario['id'];
+            header('Location: portal.php');
             exit();
         } else {
-            $mensagem_erra = "Credeciais inválidas!";
+            $mensagem_erro = "Credenciais inválidas!";
         }
     }
 }
@@ -33,18 +32,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
     <div class="container">
+
+        <div class="box">
+            <h1>AUTENTICAÇÃO</h1>
+        </div>
+
         <form method="POST">
+            <label for="email">Email:</label>
             <input type="email" name="email" placeholder="Insira o e-mail" required>
+            <br><br>
+            <label for="senha">Senha:</label>
             <input type="password" name="senha" placeholder="Insira a senha" required>
-            <input type="submit" value="Entrar">
-            <p>Não tem conta?<a href="./registar.php">Aqui</a></p>
+            <br><br>
+            <input type="submit" name="login" value="Login">
         </form>
+        <p>Não tem uma conta?<a href="./registrar.php">Registra-se aqui</a></p>
+
         <div class="mensagem">
-            <?php
-            if (isset($mensagem_erra)) {
-                echo '<p>' . $mensagem_erra . '</p>';
-            }
-            ?>
+            <?php if (isset($mensagem_erro)) echo '<p>' . $mensagem_erro . '</p>'; ?>
         </div>
     </div>
 </body>

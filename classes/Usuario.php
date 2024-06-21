@@ -4,17 +4,7 @@ class Usuario
 {
     private $conn;
 
-    private $table_name = "tbusuarios"; //nome da tabela
-
-    private $id;
-    private $nome;
-    private $sexo;
-    private $fone;
-    private $email;
-
-    private $senha;
-
-
+    private $table_name = "usuario"; //nome da tabela
 
     public function __construct($db)
     {
@@ -23,8 +13,10 @@ class Usuario
 
     public function registrar($nome, $sexo, $fone, $email, $senha)
     {
-        $query = " INSERT INTO " . $this->table_name . " (nome, sexo, fone, email, senha) VALUES (?,?,?,?,?)";
+        $query = "INSERT INTO " . $this->table_name . " (nome, sexo, fone, email, senha) VALUES (?,?,?,?,?)";
+        var_dump($query);
         $stmt = $this->conn->prepare($query);
+        var_dump($stmt);
         $hashed_password = password_hash($senha, PASSWORD_BCRYPT);
         $stmt->execute([$nome, $sexo, $fone, $email, $hashed_password]);
         return $stmt;
@@ -32,7 +24,7 @@ class Usuario
 
     public function login($email, $senha)
     {
-        $query = "SELECT * FROM  " . $this->table_name .  " WHERE email = ?";
+        $query = "SELECT * FROM  " . $this->table_name .  " WHERE email=?";
         $stmt = $this->conn->prepare($query);
         $stmt->execute([$email]);
         $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -42,20 +34,9 @@ class Usuario
         return false;
     }
 
-    public function atualizar($id, $nome, $sexo, $email, $fone)
+    public function criar($nome, $sexo, $fone, $email, $senha)
     {
-        $query = "UPDATE " . $this->table_name . " SET nome = ?, sexo = ?, fone = ?, email = ? WHERE id = ?";
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute([$nome, $sexo, $fone, $email, $id]);
-        return $stmt;
-    }
-
-    public function deletar($id)
-    {
-        $query = "DELETE FROM " . $this->table_name . " WHERE id = ?";
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute([$id]);
-        return $stmt;
+        return $this->registrar($nome, $sexo, $fone, $email, $senha);
     }
 
     public function ler()
@@ -68,9 +49,25 @@ class Usuario
 
     public function lerPorId($id)
     {
-        $query = "SELECT * FROM " . $this->table_name . " WHERE id = ?";
+        $query = "SELECT * FROM " . $this->table_name . " WHERE id=?";
         $stmt = $this->conn->prepare($query);
         $stmt->execute([$id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function atualizar($id, $nome, $sexo, $fone, $email)
+    {
+        $query = "UPDATE " . $this->table_name . " SET nome=?, sexo=?, fone=?, email=? WHERE id=?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute([$nome, $sexo, $fone, $email, $id]);
+        return $stmt;
+    }
+
+    public function deletar($id)
+    {
+        $query = "DELETE FROM " . $this->table_name . " WHERE id = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute([$id]);
+        return $stmt;
     }
 }
