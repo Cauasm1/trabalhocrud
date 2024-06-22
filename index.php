@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['email'])) {
         $email = $_POST['email'];
         $senha = $_POST['senha'];
-        if ($dados_usuario = $usuario->login($email,$senha)) {
+        if ($dados_usuario = $usuario->login($email, $senha)) {
             $_SESSION['usuario_id'] =
                 $dados_usuario['id'];
             header('Location: portal.php');
@@ -27,29 +27,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 
 <body>
-    <div class="container">
+    <div class="banner">
+        <video autoplay muted loop>
+            <source src="https://cdn.pixabay.com/video/2024/02/23/201735-916310640_large.mp4" type="video/mp4">
+        </video>
 
-        <div class="box">
-            <h1>AUTENTICAÇÃO</h1>
-        </div>
+        <div class="container">
 
-        <form method="POST">
-            <label for="email">Email:</label>
-            <input type="email" name="email" placeholder="Insira o e-mail" required>
-            <br><br>
-            <label for="senha">Senha:</label>
-            <input type="password" name="senha" placeholder="Insira a senha" required>
-            <br><br>
-            <input type="submit" name="login" value="Login">
-        </form>
-        <p>Não tem uma conta?<a href="./registrar.php">Registra-se aqui</a></p>
+            <div class="box">
+                <h1>AUTENTICAÇÃO</h1>
+            </div>
 
-        <div class="mensagem">
-            <?php if (isset($mensagem_erro)) echo '<p>' . $mensagem_erro . '</p>'; ?>
+            <form method="POST">
+                <label for="email">Email:</label>
+                <input type="email" name="email" placeholder="Insira o e-mail" required>
+                <br><br>
+                <label for="senha">Senha:</label>
+                <input type="password" name="senha" placeholder="Insira a senha" required>
+                <br><br>
+                <input type="submit" name="login" value="Login">
+            </form>
+
+            <p>Não tem uma conta?
+                <br>
+                <a href="./registrar.php">Registra-se aqui</a>
+            </p>
+
+            <div class="mensagem">
+                <?php if (isset($mensagem_erro)) echo '<p>' . $mensagem_erro . '</p>'; ?>
+            </div>
+
         </div>
     </div>
 </body>
