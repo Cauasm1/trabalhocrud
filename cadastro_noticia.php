@@ -1,6 +1,3 @@
-<?php
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,11 +14,14 @@
         <video autoplay muted loop>
             <source src="https://cdn.pixabay.com/video/2024/02/23/201735-916310640_large.mp4" type="video/mp4">
         </video>
+
         <div class="container">
 
             <form method="POST">
-                <input type="submit" name="login" value="Login">
+                <label for="noticia">Escreva uma notícia:</label>
+                <textarea id="noticia" name="noticia" rows="5" cols="33"></textarea>
             </form>
+
 
         </div>
     </div>
