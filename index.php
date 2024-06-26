@@ -12,19 +12,20 @@
 </head>
 
 <body>
+    <header>
 
-    <div class="banner">
-        <video autoplay muted loop>
-            <source src="https://cdn.pixabay.com/video/2024/02/23/201735-916310640_large.mp4" type="video/mp4">
-        </video>
-        <div class="container">
+        <h1>Portal de Notícias</h1>
 
-            <form method="POST">
-                <input type="submit" name="login" value="Login">
-            </form>
+        <naigation>
+            <a id="primeiro" class="login" role="button" href="login.php">Login</a>
+        </naigation>
 
-        </div>
-    </div>
+    </header>
+
+
+    <footer>
+        Direitos autorais por Cauã
+    </footer>
 
 </body>
 

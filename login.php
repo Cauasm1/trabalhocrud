@@ -32,43 +32,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
-    
-    <div class="banner">
-        <video autoplay muted loop>
-            <source src="https://cdn.pixabay.com/video/2024/02/23/201735-916310640_large.mp4" type="video/mp4">
-        </video>
 
-        <div class="container">
+    <div class="container">
 
-            <div class="box">
-                <h1>AUTENTICAÇÃO</h1>
-            </div>
-
-            <form method="POST">
-                <label for="email">Email:</label>
-                <input type="email" name="email" placeholder="Insira o e-mail" required>
-                <br><br>
-                <label for="senha">Senha:</label>
-                <input type="password" name="senha" placeholder="Insira a senha" required>
-                <br><br>
-                <input type="submit" name="login" value="Login">
-            </form>
-
-            <p>Esqueceu sua senha?
-                <br>
-                <a href="./solicitar_recuperacao.php">Recupere aqui!</a>
-            </p>
-
-            <p>Não tem uma conta?
-                <br>
-                <a href="./registrar.php">Registra-se aqui!</a>
-            </p>
-
-            <div class="mensagem">
-                <?php if (isset($mensagem_erro)) echo '<p>' . $mensagem_erro . '</p>'; ?>
-            </div>
-
+        <div class="box">
+            <h1>AUTENTICAÇÃO</h1>
         </div>
+
+        <form method="POST">
+            <label for="email">Email:</label>
+            <input type="email" name="email" placeholder="Insira o e-mail" required>
+            <br><br>
+            <label for="senha">Senha:</label>
+            <input type="password" name="senha" placeholder="Insira a senha" required>
+            <br><br>
+            <input type="submit" name="login" value="Login">
+        </form>
+
+        <p>Esqueceu sua senha?
+            <br>
+            <a href="./solicitar_recuperacao.php">Recupere aqui!</a>
+        </p>
+
+        <p>Não tem uma conta?
+            <br>
+            <a href="./registrar.php">Registra-se aqui!</a>
+        </p>
+
+        <div class="mensagem">
+            <?php if (isset($mensagem_erro)) echo '<p>' . $mensagem_erro . '</p>'; ?>
+        </div>
+
     </div>
 
 </body>

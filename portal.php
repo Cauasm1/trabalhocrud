@@ -53,9 +53,9 @@ function saudacao()
     <div class="container">
 
         <h1><?php echo saudacao() . ", " . $nome_usuario; ?>!</h1>
-        <a href="registrar.php">Adicionar Usuário</a>
-        <a href="cadastro_noticia.php">Cadastro de Notícia</a>
-        <a href="logout.php">Logout</a>
+        <a id="primeiro" class="button" role="button" href="registrar.php">Adicionar Usuário</a>
+        <a class="button" role="button" href="cadastro_noticia.php">Cadastro de Notícia</a>
+        <a class="button" role="button" href="logout.php">Logout</a>
         <br>
         <table border="1">
             <tr>
@@ -74,8 +74,8 @@ function saudacao()
                     <td><?php echo $row['fone']; ?></td>
                     <td><?php echo $row['email']; ?></td>
                     <td>
-                        <a href="editar.php?id=<?php echo $row['id']; ?>">Editar</a>
-                        <a href="deletar.php?id=<?php echo $row['id']; ?>">Deletar</a>
+                        <a class="editar" role="button" href="editar.php?id=<?php echo $row['id']; ?>">Editar</a>
+                        <a class="deletar" role="button" href="deletar.php?id=<?php echo $row['id']; ?>">Deletar</a>
                     </td>
                 </tr>
             <?php endwhile; ?>

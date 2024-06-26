@@ -10,20 +10,17 @@
 
 <body>
 
-    <div class="banner">
-        <video autoplay muted loop>
-            <source src="https://cdn.pixabay.com/video/2024/02/23/201735-916310640_large.mp4" type="video/mp4">
-        </video>
+    <div class="container">
 
-        <div class="container">
+        <h1>Cadastro de Notícias:</h1>
 
-            <form method="POST">
-                <label for="noticia">Escreva uma notícia:</label>
-                <textarea id="noticia" name="noticia" rows="5" cols="33"></textarea>
-            </form>
+        <form method="POST">
+            <label for="noticia">Escreva uma notícia:</label>
+            <br><br>
+            <textarea id="noticia" name="noticia" rows="5" cols="33" placeholder="Escreva uma notícia"></textarea>
+        </form>
 
 
-        </div>
     </div>
 
 </body>

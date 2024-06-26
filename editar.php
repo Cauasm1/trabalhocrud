@@ -36,37 +36,31 @@ if (isset(($_GET['id']))) {
 
 <body>
 
-    <div class="banner">
-        <video autoplay muted loop>
-            <source src="https://cdn.pixabay.com/video/2024/02/23/201735-916310640_large.mp4" type="video/mp4">
-        </video>
+    <div class="container">
 
-        <div class="container">
+        <h1>Editar Usuário</h1>
+        <form method="POST">
+            <input type="hidden" name="id" value="<?php echo $row['id']; ?>" required>
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" value="<?php echo $row['nome']; ?>" required>
+            <br><br>
+            <label>Sexo:</label>
+            <label for="masculino_editar">
+                <input type="radio" id="masculino_editar" name="sexo" value="M" <?php echo ($row['sexo'] === 'F') ? 'checked' : ''; ?> required>Masculino
+            </label>
+            <label for="feminino_editar">
+                <input type="radio" id="feminino_editar" name="sexo" value="F" <?php echo ($row['sexo'] === 'F') ? 'checked' : ''; ?> required>Feminino
+            </label>
+            <br><br>
+            <label for="fone">Fone:</label>
+            <input typr="text" name="fone" value="<?php echo $row['fone']; ?>" required>
+            <br><br>
+            <label for="email">Email:</label>
+            <input type="email" name="email" value="<?php echo $row['email']; ?>" required>
+            <br><br>
+            <input type="submit" value="Atualizar">
+        </form>
 
-            <h1>Editar Usuário</h1>
-            <form method="POST">
-                <input type="hidden" name="id" value="<?php echo $row['id']; ?>" required>
-                <label for="nome">Nome:</label>
-                <input type="text" name="nome" value="<?php echo $row['nome']; ?>" required>
-                <br><br>
-                <label>Sexo:</label>
-                <label for="masculino_editar">
-                    <input type="radio" id="masculino_editar" name="sexo" value="M" <?php echo ($row['sexo'] === 'F') ? 'checked' : ''; ?> required>Masculino
-                </label>
-                <label for="feminino_editar">
-                    <input type="radio" id="feminino_editar" name="sexo" value="F" <?php echo ($row['sexo'] === 'F') ? 'checked' : ''; ?> required>Feminino
-                </label>
-                <br><br>
-                <label for="fone">Fone:</label>
-                <input typr="text" name="fone" value="<?php echo $row['fone']; ?>" required>
-                <br><br>
-                <label for="email">Email:</label>
-                <input type="email" name="email" value="<?php echo $row['email']; ?>" required>
-                <br><br>
-                <input type="submit" value="Atualizar">
-            </form>
-
-        </div>
     </div>
 
 </body>

@@ -26,23 +26,17 @@ redefinir sua senha.";
 
 <body>
 
-    <div class="banner">
-        <video autoplay muted loop>
-            <source src="https://cdn.pixabay.com/video/2024/02/23/201735-916310640_large.mp4" type="video/mp4">
-        </video>
+    <div class="container">
 
-        <div class="container">
+        <h1>Recuperar Senha</h1>
+        <form method="POST">
+            <label for="email">Email:</label>
+            <input type="email" name="email" required><br><br>
+            <input type="submit" value="Enviar">
+        </form>
+        <p><?php echo $mensagem; ?></p>
+        <a href="login.php">Voltar</a>
 
-            <h1>Recuperar Senha</h1>
-            <form method="POST">
-                <label for="email">Email:</label>
-                <input type="email" name="email" required><br><br>
-                <input type="submit" value="Enviar">
-            </form>
-            <p><?php echo $mensagem; ?></p>
-            <a href="login.php">Voltar</a>
-
-        </div>
     </div>
 
 </body>

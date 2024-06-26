@@ -25,24 +25,18 @@ href="login.php">entrar</a> agora.';
 
 <body>
 
-    <div class="banner">
-        <video autoplay muted loop>
-            <source src="https://cdn.pixabay.com/video/2024/02/23/201735-916310640_large.mp4" type="video/mp4">
-        </video>
+    <div class="container">
 
-        <div class="container">
+        <h1>Redefinir Senha</h1>
+        <form method="POST">
+            <label for="codigo">Código de Verificação:</label>
+            <input type="text" name="codigo"  value="Seu código aqui" required><br><br>
+            <label for="nova_senha">Nova Senha:</label>
+            <input type="password" name="nova_senha" required><br><br>
+            <input type="submit" value="Redefinir Senha">
+        </form>
+        <p><?php echo $mensagem; ?></p>
 
-            <h1>Redefinir Senha</h1>
-            <form method="POST">
-                <label for="codigo">Código de Verificação:</label>
-                <input type="text" name="codigo"  value="Seu código aqui" required><br><br>
-                <label for="nova_senha">Nova Senha:</label>
-                <input type="password" name="nova_senha" required><br><br>
-                <input type="submit" value="Redefinir Senha">
-            </form>
-            <p><?php echo $mensagem; ?></p>
-
-        </div>
     </div>
 
 </body>
