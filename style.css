@@ -1,53 +1,113 @@
-* {
-    color: white;
+body {
+    background-image: url('https://asset.gecdesigns.com/img/wallpapers/beautiful-fantasy-wallpaper-ultra-hd-wallpaper-4k-sr10012418-1706506236698-cover.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    height: 100px;
+    background-attachment: fixed;
 }
 
-input {
-    background-color: black;
+header {
+    background-image: linear-gradient(rgba(182, 45, 45, 0.849), rgba(233, 196, 74, 0.788) 80%);
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 0;
+    box-shadow: 0px 0px 20px rgb(0, 0, 0);
+    position: fixed;
+    width: 100%;
+    height: 100px;
+    top: 0;
+    left: 0;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+.button {
+    background-color: rgba(233, 196, 74, 0.788);
+    border: 0;
+    border-radius: 100px;
+    box-shadow: rgba(3, 77, 67, 0.445) 0 8px 12px;
+    box-sizing: border-box;
+    color: black;
+    font-family: Quicksand, sans-serif;
+    font-size: 15px;
+    justify-content: center;
+    line-height: 1em;
+    max-width: 100%;
+    min-width: 90px;
+    padding: 8px;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    cursor: pointer;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.login {
+    background-color: rgba(233, 196, 74, 0.788);
+    border: 0;
+    border-radius: 100px;
+    box-shadow: rgba(3, 77, 67, 0.445) 0 8px 12px;
+    box-sizing: border-box;
+    color: black;
+    font-family: Quicksand, sans-serif;
+    font-size: 15px;
+    justify-content: center;
+    line-height: 1em;
+    max-width: 100%;
+    min-width: 90px;
+    padding: 8px;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    cursor: pointer;
+    margin-bottom: 15px;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 85%;
+    transform: translate(-50%, -50%);
 }
 
 .container {
+    background-color: rgba(221, 65, 65, 0.849);
     text-align: center;
-    width: 500px;
+    width: 450px;
     padding: 50px;
     margin: 125px auto;
     border: 2px rgb(255, 255, 255) solid;
     border-radius: 3%;
-    background-color: rgba(5, 24, 133, 0.644);
     z-index: 1;
-    position: relative;
     max-width: 1000px;
-    margin: 0 auto;
+    box-shadow: 0px 0px 20px rgb(0, 0, 0);
+}
+
+textarea {
+    padding: 10px;
+    max-width: 100%;
+    line-height: 1.5;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px #000000;
+}
+
+footer {
+    background-image: linear-gradient(rgba(182, 45, 45, 0.849), rgba(233, 196, 74, 0.788) 80%);
     text-align: center;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    height: 100px;
-}
-
-.banner {
+    color: black;
+    padding: 20px;
+    margin-top: 50px;
+    font-size: large;
     width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.banner video {
     position: fixed;
-    top: 0;
+    bottom: 0;
     left: 0;
-    object-fit: cover;
-    width: 100%;
-}
-
-p {
-    color: white;
-}
-
-a {
-    color: white;
 }

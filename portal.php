@@ -4,7 +4,7 @@ include_once './config/config.php';
 include_once './classes/Usuario.php';
 
 if (!isset($_SESSION['usuario_id'])) {
-    header('Location: index.php');
+    header('Location: login.php');
     exit();
 }
 $usuario = new Usuario($db);
@@ -45,42 +45,48 @@ function saudacao()
 </head>
 
 <body>
-    <div class="banner">
-        <video autoplay muted loop>
-            <source src="https://cdn.pixabay.com/video/2024/02/23/201735-916310640_large.mp4" type="video/mp4">
-        </video>
 
-        <div class="container">
+    <header>
+        <h1>Portal de Notícias</h1>
+    </header>
 
-            <h1><?php echo saudacao() . ", " . $nome_usuario; ?>!</h1>
-            <a href="registrar.php">Adicionar Usuário</a>
-            <a href="logout.php">Logout</a>
-            <br>
-            <table border="1">
+    <div class="container">
+
+        <h1><?php echo saudacao() . ", " . $nome_usuario; ?>!</h1>
+        <a id="primeiro" class="button" role="button" href="registrar.php">Adicionar Usuário</a>
+        <a class="button" role="button" href="cadastro_noticia.php">Cadastro de Notícia</a>
+        <a class="button" role="button" href="logout.php">Logout</a>
+        <br>
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Sexo</th>
+                <th>Fone</th>
+                <th>Email</th>
+                <th>Ações</th>
+            </tr>
+            <?php while ($row = $dados->fetch(PDO::FETCH_ASSOC)) : ?>
                 <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Sexo</th>
-                    <th>Fone</th>
-                    <th>Email</th>
-                    <th>Ações</th>
+                    <td><?php echo $row['id']; ?></td>
+                    <td><?php echo $row['nome']; ?></td>
+                    <td><?php echo ($row['sexo'] === 'M') ? 'Masculino' : 'Feminino'; ?></td>
+                    <td><?php echo $row['fone']; ?></td>
+                    <td><?php echo $row['email']; ?></td>
+                    <td>
+                        <a class="editar" role="button" href="editar.php?id=<?php echo $row['id']; ?>">Editar</a>
+                        <a class="deletar" role="button" href="deletar.php?id=<?php echo $row['id']; ?>">Deletar</a>
+                    </td>
                 </tr>
-                <?php while ($row = $dados->fetch(PDO::FETCH_ASSOC)) : ?>
-                    <tr>
-                        <td><?php echo $row['id']; ?></td>
-                        <td><?php echo $row['nome']; ?></td>
-                        <td><?php echo ($row['sexo'] === 'M') ? 'Masculino' : 'Feminino'; ?></td>
-                        <td><?php echo $row['fone']; ?></td>
-                        <td><?php echo $row['email']; ?></td>
-                        <td>
-                            <a href="editar.php?id=<?php echo $row['id']; ?>">Editar</a>
-                            <a href="deletar.php?id=<?php echo $row['id']; ?>">Deletar</a>
-                        </td>
-                    </tr>
-                <?php endwhile; ?>
-            </table>
-        </div>
+            <?php endwhile; ?>
+        </table>
+
     </div>
+
+    <footer>
+        Direitos autorais por Cauã
+    </footer>
+
 </body>
 
 </html>
