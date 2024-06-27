@@ -25,6 +25,10 @@ href="login.php">entrar</a> agora.';
 
 <body>
 
+    <header>
+        <h1>Portal de Notícias</h1>
+    </header>
+
     <div class="container">
 
         <h1>Redefinir Senha</h1>
@@ -38,6 +42,10 @@ href="login.php">entrar</a> agora.';
         <p><?php echo $mensagem; ?></p>
 
     </div>
+
+    <footer>
+        Direitos autorais por Cauã
+    </footer>
 
 </body>
 

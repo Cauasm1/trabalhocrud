@@ -36,6 +36,10 @@ if (isset(($_GET['id']))) {
 
 <body>
 
+    <header>
+        <h1>Portal de Notícias</h1>
+    </header>
+
     <div class="container">
 
         <h1>Editar Usuário</h1>
@@ -62,6 +66,10 @@ if (isset(($_GET['id']))) {
         </form>
 
     </div>
+
+    <footer>
+        Direitos autorais por Cauã
+    </footer>
 
 </body>
 

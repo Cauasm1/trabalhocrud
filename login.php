@@ -33,6 +33,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
 
+    <header>
+        <h1>Portal de Notícias</h1>
+    </header>
+
     <div class="container">
 
         <div class="box">
@@ -64,6 +68,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
 
     </div>
+
+    <footer>
+        Direitos autorais por Cauã
+    </footer>
 
 </body>
 

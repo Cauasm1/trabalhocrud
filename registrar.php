@@ -27,6 +27,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
 
+    <header>
+        <h1>Portal de Notícias</h1>
+    </header>
+
     <div class="container">
 
 
@@ -56,6 +60,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </form>
 
     </div>
+
+    <footer>
+        Direitos autorais por Cauã
+    </footer>
 
 </body>
 

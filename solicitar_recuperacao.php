@@ -26,6 +26,10 @@ redefinir sua senha.";
 
 <body>
 
+    <header>
+        <h1>Portal de Notícias</h1>
+    </header>
+
     <div class="container">
 
         <h1>Recuperar Senha</h1>
@@ -38,6 +42,10 @@ redefinir sua senha.";
         <a href="login.php">Voltar</a>
 
     </div>
+
+    <footer>
+        Direitos autorais por Cauã
+    </footer>
 
 </body>
 

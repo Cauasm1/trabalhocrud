@@ -10,7 +10,12 @@
 
 <body>
 
-    <div class="container">
+    <header>
+        <h1>Portal de Notícias</h1>
+    </header>
+
+
+    <div class="cadastrodenoticias-container">
 
         <h1>Cadastro de Notícias:</h1>
 
@@ -18,10 +23,16 @@
             <label for="noticia">Escreva uma notícia:</label>
             <br><br>
             <textarea id="noticia" name="noticia" rows="5" cols="33" placeholder="Escreva uma notícia"></textarea>
+            <br><br>
+            <a id="primeiro" class="button" role="button">Salvar</a>
         </form>
 
 
     </div>
+
+    <footer>
+        Direitos autorais por Cauã
+    </footer>
 
 </body>
 
