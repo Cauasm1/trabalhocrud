@@ -9,17 +9,15 @@ if (!isset($_SESSION['usuario_id'])) {
 }
 $usuario = new Usuario($db);
 
-if (isset($_GET['deletar'])) {
-    $id = $_GET['deletar'];
-    $usuario->deletar($id);
-    header('Location: portal.php');
-    exit();
-}
-
 $dados_usuario = $usuario->lerPorId($_SESSION['usuario_id']);
 $nome_usuario = $dados_usuario['nome'];
 
 $dados = $usuario->ler();
+
+$search = isset($_GET['search']) ? $_GET['search'] : '';
+$order_by = isset($_GET['order_by']) ? $_GET['order_by'] : '';
+
+$dados = $usuario->ler($search, $order_by);
 
 function saudacao()
 {
@@ -50,36 +48,13 @@ function saudacao()
         <h1>Portal de Notícias</h1>
     </header>
 
-    <div class="container">
+    <div class="portal-container">
 
         <h1><?php echo saudacao() . ", " . $nome_usuario; ?>!</h1>
-        <a id="primeiro" class="button" role="button" href="registrar.php">Adicionar Usuário</a>
-        <a class="button" role="button" href="cadastro_noticia.php">Cadastro de Notícia</a>
-        <a class="button" role="button" href="logout.php">Logout</a>
+
+        <a id="primeiro" class="button" role="button" href="cadastro_usuario.php">Cadastro de Usuários</a>
         <br>
-        <table border="1">
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Sexo</th>
-                <th>Fone</th>
-                <th>Email</th>
-                <th>Ações</th>
-            </tr>
-            <?php while ($row = $dados->fetch(PDO::FETCH_ASSOC)) : ?>
-                <tr>
-                    <td><?php echo $row['id']; ?></td>
-                    <td><?php echo $row['nome']; ?></td>
-                    <td><?php echo ($row['sexo'] === 'M') ? 'Masculino' : 'Feminino'; ?></td>
-                    <td><?php echo $row['fone']; ?></td>
-                    <td><?php echo $row['email']; ?></td>
-                    <td>
-                        <a class="editar" role="button" href="editar.php?id=<?php echo $row['id']; ?>">Editar</a>
-                        <a class="deletar" role="button" href="deletar.php?id=<?php echo $row['id']; ?>">Deletar</a>
-                    </td>
-                </tr>
-            <?php endwhile; ?>
-        </table>
+        <a class="button" role="button" href="cadastro_noticia.php">Cadastro de Notícias</a>
 
     </div>
 

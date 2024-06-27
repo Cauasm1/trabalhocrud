@@ -9,7 +9,7 @@ body {
 }
 
 header {
-    background-image: linear-gradient(rgba(182, 45, 45, 0.849), rgba(233, 196, 74, 0.788) 80%);
+    background-image: linear-gradient(rgba(50, 29, 107, 0.849), rgba(182, 45, 45, 0.849) 80%);
     text-align: center;
     padding-top: 5px;
     padding-bottom: 0;
@@ -22,6 +22,7 @@ header {
 }
 
 h1 {
+    font-family: "DM Sans", sans-serif;
     font-size: 50px;
 }
 
@@ -78,16 +79,59 @@ h1 {
 }
 
 .container {
-    background-color: rgba(221, 65, 65, 0.849);
+    background-image: radial-gradient(circle, #b62d2dc0, #a70644c2, #8c0059c9, #660f66c7, #321d6bcb);
     text-align: center;
     width: 450px;
-    padding: 50px;
-    margin: 125px auto;
+    padding: 25px;
+    margin: 140px auto;
     border: 2px rgb(255, 255, 255) solid;
-    border-radius: 3%;
+    border-radius: 10px;
     z-index: 1;
     max-width: 1000px;
     box-shadow: 0px 0px 20px rgb(0, 0, 0);
+    position: relative;
+}
+
+.portal-container {
+    background-image: radial-gradient(circle, #b62d2dc0, #a70644c2, #8c0059c9, #660f66c7, #321d6bcb);
+    text-align: center;
+    width: 450px;
+    padding: 50px;
+    margin: 175px auto;
+    border: 2px rgb(255, 255, 255) solid;
+    border-radius: 10px;
+    z-index: 1;
+    max-width: 1000px;
+    box-shadow: 0px 0px 20px rgb(0, 0, 0);
+    position: relative;
+}
+
+.cadastro-container {
+    background-image: radial-gradient(circle, #b62d2dd0, #a70644d3, #8c0059d2, #660f66d7, #321d6bd5);
+    text-align: center;
+    width: 600px;
+    padding: 30px;
+    margin: 130px auto;
+    border: 2px rgb(255, 255, 255) solid;
+    border-radius: 10px;
+    z-index: 1;
+    max-width: 1000px;
+    box-shadow: 0px 0px 20px rgb(0, 0, 0);
+    position: relative;
+}
+
+.cadastrodenoticias-container {
+    background-image: radial-gradient(circle, #b62d2dd0, #a70644d3, #8c0059d2, #660f66d7, #321d6bd5);
+    text-align: center;
+    width: 600px;
+    padding: 20px;
+    margin: 130px auto;
+    border: 2px rgb(255, 255, 255) solid;
+    border-radius: 10px;
+    z-index: 1;
+    max-width: 1000px;
+    box-shadow: 0px 0px 20px rgb(0, 0, 0);
+    position: relative;
 }
 
 textarea {
@@ -99,8 +143,23 @@ textarea {
     box-shadow: 1px 1px 1px #000000;
 }
 
+table {
+    display: flex;
+    justify-content: center;
+    border-collapse: collapse;
+}
+
+th,
+tr,
+td {
+    background-color: white;
+    border: 1px solid black;
+    padding: 5px;
+    text-align: center;
+}
+
 footer {
-    background-image: linear-gradient(rgba(182, 45, 45, 0.849), rgba(233, 196, 74, 0.788) 80%);
+    background-image: linear-gradient(rgba(182, 45, 45, 0.849), rgba(50, 29, 107, 0.849) 80%);
     text-align: center;
     color: black;
     padding: 20px;
