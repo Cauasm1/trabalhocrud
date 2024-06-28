@@ -7,6 +7,7 @@ if (!isset($_SESSION['usuario_id'])) {
     header('Location: login.php');
     exit();
 }
+
 $usuario = new Usuario($db);
 
 $dados_usuario = $usuario->lerPorId($_SESSION['usuario_id']);
