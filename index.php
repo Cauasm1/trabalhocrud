@@ -1,4 +1,18 @@
 <?php
+session_start();
+include_once './config/config.php';
+include_once './classes/Noticias.php';
+
+$noticias = new Noticias($db);
+
+if (isset($_GET['deletar'])) {
+    $id = $_GET['deletar'];
+    $usuario->deletar($id);
+    header('Location: index.php');
+    exit();
+}
+
+$dados = $noticias->ler();
 
 ?>
 <!DOCTYPE html>
@@ -25,6 +39,19 @@
 
     </header>
 
+    <div class="container">
+
+        <table>
+            <?php while ($row = $dados->fetch(PDO::FETCH_ASSOC)) : ?>
+                <tr>
+                    <td><?php echo $row['data']; ?></td>
+                    <td><?php echo $row['titulo']; ?></td>
+                    <td><?php echo $row['noticia']; ?></td>
+                </tr>
+            <?php endwhile; ?>
+        </table>
+
+    </div>
 
     <footer>
         Direitos autorais por Cauã

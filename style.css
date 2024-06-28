@@ -51,10 +51,10 @@ h1 {
 }
 
 .login {
-    background-color: rgba(233, 196, 74, 0.788);
+    background-color: rgba(226, 79, 10, 0.788);
     border: 0;
     border-radius: 100px;
-    box-shadow: rgba(3, 77, 67, 0.445) 0 8px 12px;
+    box-shadow: rgba(3, 87, 76, 0.671) 0 8px 12px;
     box-sizing: border-box;
     color: black;
     font-family: Quicksand, sans-serif;
@@ -95,7 +95,7 @@ h1 {
 .portal-container {
     background-image: radial-gradient(circle, #b62d2dc0, #a70644c2, #8c0059c9, #660f66c7, #321d6bcb);
     text-align: center;
-    width: 450px;
+    width: 500px;
     padding: 50px;
     margin: 175px auto;
     border: 2px rgb(255, 255, 255) solid;
@@ -154,7 +154,7 @@ tr,
 td {
     background-color: white;
     border: 1px solid black;
-    padding: 5px;
+    padding: 10px;
     text-align: center;
 }
 
