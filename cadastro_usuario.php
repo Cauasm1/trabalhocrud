@@ -4,9 +4,10 @@ include_once './config/config.php';
 include_once './classes/Usuario.php';
 
 if (!isset($_SESSION['usuario_id'])) {
-    header('Location: cadastro_usuario.php');
+    header('Location: login.php');
     exit();
 }
+
 $usuario = new Usuario($db);
 
 if (isset($_GET['deletar'])) {
@@ -23,7 +24,6 @@ $dados = $usuario->ler($search, $order_by);
 
 $dados_usuario = $usuario->lerPorId($_SESSION['usuario_id']);
 $nome_usuario = $dados_usuario['nome'];
-
 
 function saudacao()
 {
@@ -102,8 +102,9 @@ function saudacao()
                     <td><?php echo $row['fone']; ?></td>
                     <td><?php echo $row['email']; ?></td>
                     <td>
-                        <a class="editar" role="button" href="editar.php?id=<?php echo $row['id']; ?>">Editar</a>
-                        <a class="deletar" role="button" href="deletar.php?id=<?php echo $row['id']; ?>">Deletar</a>
+                        <a href="editar.php?id=<?php echo $row['id']; ?>">Editar</a>
+                        <br>
+                        <a href="deletar.php?id=<?php echo $row['id']; ?>">Deletar</a>
                     </td>
                 </tr>
             <?php endwhile; ?>
