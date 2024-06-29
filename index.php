@@ -6,8 +6,8 @@ include_once './classes/Noticias.php';
 $noticias = new Noticias($db);
 
 if (isset($_GET['deletar'])) {
-    $id = $_GET['deletar'];
-    $usuario->deletar($id);
+    $idnot = $_GET['deletar'];
+    $noticias->deletar($idnot);
     header('Location: index.php');
     exit();
 }
@@ -39,19 +39,25 @@ $dados = $noticias->ler();
 
     </header>
 
-    <div class="container">
-
-        <table>
-            <?php while ($row = $dados->fetch(PDO::FETCH_ASSOC)) : ?>
-                <tr>
-                    <td><?php echo $row['data']; ?></td>
-                    <td><?php echo $row['titulo']; ?></td>
-                    <td><?php echo $row['noticia']; ?></td>
-                </tr>
-            <?php endwhile; ?>
-        </table>
-
-    </div>
+    <?php while ($row = $dados->fetch(PDO::FETCH_ASSOC)) : ?>
+        <tr>
+            <div class="index-container">
+                <label>Titulo:</label>
+                <td><?php echo $row['titulo']; ?></td>
+                <br><br>
+                <label>Data:</label>
+                <td><?php echo $row['data']; ?></td>
+                <br><br>
+                <label>Noticia:</label>
+                <br><br>
+                <td><?php echo $row['noticia']; ?></td>
+                <td>
+                    <br><br><br>
+                    <a href="deletar_noticia.php?idnot=<?php echo $row['idnot']; ?>">Deletar</a>
+                </td>
+            </div>
+        </tr>
+    <?php endwhile; ?>
 
     <footer>
         Direitos autorais por Cauã
