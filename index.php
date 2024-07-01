@@ -51,17 +51,9 @@ $dados = $noticias->ler();
                 <label>Noticia:</label>
                 <br><br>
                 <td><?php echo $row['noticia']; ?></td>
-                <td>
-                    <br><br><br>
-                    <a href="deletar_noticia.php?idnot=<?php echo $row['idnot']; ?>">Deletar</a>
-                </td>
             </div>
         </tr>
     <?php endwhile; ?>
-
-    <footer>
-        Direitos autorais por Cauã
-    </footer>
 
 </body>
 

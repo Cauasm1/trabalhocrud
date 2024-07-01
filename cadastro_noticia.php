@@ -61,10 +61,6 @@ if (!isset($_SESSION['usuario_id'])) {
     }
     ?>
 
-    <footer>
-        Direitos autorais por Cauã
-    </footer>
-
 </body>
 
 </html>

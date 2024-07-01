@@ -43,10 +43,6 @@ href="login.php">entrar</a> agora.';
 
     </div>
 
-    <footer>
-        Direitos autorais por Cauã
-    </footer>
-
 </body>
 
 </html>

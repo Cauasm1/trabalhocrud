@@ -69,10 +69,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     </div>
 
-    <footer>
-        Direitos autorais por Cauã
-    </footer>
-
 </body>
 
 </html>
