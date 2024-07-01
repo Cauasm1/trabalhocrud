@@ -43,10 +43,6 @@ redefinir sua senha.";
 
     </div>
 
-    <footer>
-        Direitos autorais por Cauã
-    </footer>
-
 </body>
 
 </html>

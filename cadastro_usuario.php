@@ -112,10 +112,6 @@ function saudacao()
 
     </div>
 
-    <footer>
-        Direitos autorais por Cauã
-    </footer>
-
 </body>
 
 </html>
