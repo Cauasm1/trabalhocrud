@@ -40,11 +40,19 @@ class Noticias
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function atualizar($idnot, $idusu, $data, $titulo, $noticia)
+    public function lerPorIdusu($idusu)
     {
-        $query = "UPDATE " . $this->table_name . " SET data=?, titulo=?, noticia=?, idnot=? WHERE idusu=?";
+        $query = "SELECT * FROM " . $this->table_name . " WHERE idusu=?";
         $stmt = $this->conn->prepare($query);
-        $stmt->execute([$data, $titulo, $noticia, $idnot, $idusu]);
+        $stmt->execute([$idusu]);
+        return $stmt;
+    }
+
+    public function atualizar($idnot, $idusu, $titulo, $noticia)
+    {
+        $query = "UPDATE " . $this->table_name . " SET idusu=?, titulo=?, noticia=? WHERE idnot=?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute([$idusu, $titulo, $noticia, $idnot]);
         return $stmt;
     }
 

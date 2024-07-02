@@ -42,6 +42,8 @@ if (!isset($_SESSION['usuario_id'])) {
             <textarea id="noticia" name="noticia" rows="5" cols="33" placeholder="Escreva uma notícia"></textarea>
             <br><br>
             <input type="submit" value="Salvar">
+            <br><br>
+            <a href="portal.php">Voltar</a>
         </form>
 
     </div>

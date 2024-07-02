@@ -57,6 +57,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="password" name="senha" placeholder="Senha" required>
             <br><br>
             <input type="submit" value="Salvar">
+            <br><br>
+            <a href="login.php">Voltar</a>
         </form>
 
     </div>

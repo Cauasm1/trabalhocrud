@@ -11,6 +11,6 @@ $noticias = new Noticias($db);
 if (isset($_GET['idnot'])) {
     $idnot = $_GET['idnot'];
     $noticias->deletar($idnot);
-    header('Location: index.php');
+    header('Location: portal.php');
     exit();
 }
