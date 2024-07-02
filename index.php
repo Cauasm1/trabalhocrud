@@ -5,13 +5,6 @@ include_once './classes/Noticias.php';
 
 $noticias = new Noticias($db);
 
-if (isset($_GET['deletar'])) {
-    $idnot = $_GET['deletar'];
-    $noticias->deletar($idnot);
-    header('Location: index.php');
-    exit();
-}
-
 $dados = $noticias->ler();
 
 ?>

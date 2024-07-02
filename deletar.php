@@ -11,6 +11,6 @@ $usuario = new Usuario($db);
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $usuario->deletar($id);
-    header('Location: cadastro_usuario.php');
+    header('Location: portal.php');
     exit();
 }
