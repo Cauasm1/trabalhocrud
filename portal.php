@@ -39,6 +39,13 @@ $noticias = new Noticias($db);
 
 $dadosnot = $noticias->lerPorIdusu($_SESSION['usuario_id']);
 
+date_default_timezone_set('America/Sao_Paulo');
+
+if (!isset($_SESSION['usuario_id'])) {
+    header('Location: login.php');
+    exit();
+}
+
 function saudacao()
 {
     $hora = date('H');
@@ -68,65 +75,52 @@ function saudacao()
         <h1>Portal de Notícias</h1>
     </header>
 
+
+
     <div class="cadastro-container">
 
         <h1><?php echo saudacao() . ", " . $nome_usuario; ?>!</h1>
 
-        <form method="GET">
-
-            <input type="text" name="search" placeholder="Pesquisar por nome ou email" value="<?php echo htmlspecialchars($search); ?>">
-
-            <label>
-                <input type="radio" name="order_by" value="" <?php if ($order_by == '') echo 'checked'; ?>> Normal
-            </label>
-
-            <label>
-                <input type="radio" name="order_by" value="nome" <?php
-                                                                    if ($order_by == 'nome') echo 'checked'; ?>> Ordem Alfabética
-            </label>
-
-            <label>
-                <input type="radio" name="order_by" value="sexo" <?php
-                                                                    if ($order_by == 'sexo') echo 'checked'; ?>> Sexo
-            </label>
-
-            <button type="submit">Pesquisar</button>
-
-        </form>
-
         <br>
 
-        <a id="primeiro" class="button" role="button" href="registrar.php">Adicionar Usuário</a>
-        <a class="button" role="button" href="logout.php">Logout</a>
+        <a class="button" role="button" href="editar.php?id=<?php echo $_SESSION['usuario_id']; ?>">Editar Usuario</a>
         <br>
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Sexo</th>
-                <th>Fone</th>
-                <th>Email</th>
-                <th>Ações</th>
-            </tr>
-            <?php while ($row = $dados->fetch(PDO::FETCH_ASSOC)) : ?>
-                <tr>
-                    <td><?php echo $row['id']; ?></td>
-                    <td><?php echo $row['nome']; ?></td>
-                    <td><?php echo ($row['sexo'] === 'M') ? 'Masculino' : 'Feminino'; ?></td>
-                    <td><?php echo $row['fone']; ?></td>
-                    <td><?php echo $row['email']; ?></td>
-                    <td>
-                        <a href="editar.php?id=<?php echo $row['id']; ?>">Editar</a>
-                        <br>
-                        <a href="deletar.php?id=<?php echo $row['id']; ?>">Deletar</a>
-                    </td>
-                </tr>
-            <?php endwhile; ?>
-        </table>
-        <br><br>
-        <a class="button" role="button" href="cadastro_noticia.php">Cadastro de Notícias</a>
+        <a class="button" role="button" href="index.php">Logout</a>
 
     </div>
+
+    <div class="cadastrodenoticias-container">
+
+        <h1>Cadastro de Notícias:</h1>
+
+        <form method="POST">
+            <label for="noticia">Escreva uma notícia:</label>
+            <br><br>
+
+            <label for="titulo">Titulo:</label>
+            <input type="text" name="titulo">
+            <br><br>
+            <textarea id="noticia" name="noticia" rows="5" cols="33" placeholder="Escreva uma notícia"></textarea>
+            <br><br>
+            <input type="submit" value="Salvar">
+        </form>
+
+    </div>
+
+    <?php
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if (isset($_POST['titulo']) && isset($_POST['noticia'])) {
+            $noticias = new Noticias($db);
+            $idusu = $_SESSION['usuario_id'];
+            $data = date("Y-m-d");
+            $titulo = $_POST['titulo'];
+            $noticia = $_POST['noticia'];
+            $noticias->registrar($idusu, $data, $titulo, $noticia);
+            header('Location: portal.php');
+            exit();
+        }
+    }
+    ?>
 
 
     <?php while ($row = $dadosnot->fetch(PDO::FETCH_ASSOC)) : ?>
