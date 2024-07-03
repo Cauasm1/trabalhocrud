@@ -1,4 +1,11 @@
 <?php
+session_start();
+include_once './config/config.php';
+include_once './classes/Noticias.php';
+
+$noticias = new Noticias($db);
+
+$dados = $noticias->ler();
 
 ?>
 <!DOCTYPE html>
@@ -8,23 +15,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 
 <body>
+    <header>
 
-    <div class="banner">
-        <video autoplay muted loop>
-            <source src="https://cdn.pixabay.com/video/2024/02/23/201735-916310640_large.mp4" type="video/mp4">
-        </video>
-        <div class="container">
+        <h1>Portal de Notícias</h1>
 
-            <form method="POST">
-                <input type="submit" name="login" value="Login">
-            </form>
+        <naigation>
+            <a id="primeiro" class="login" role="button" href="login.php">Login</a>
+        </naigation>
 
-        </div>
-    </div>
+    </header>
+
+    <?php while ($row = $dados->fetch(PDO::FETCH_ASSOC)) : ?>
+        <tr>
+            <div class="index-container">
+                <label>Titulo:</label>
+                <td><?php echo $row['titulo']; ?></td>
+                <br><br>
+                <label>Data:</label>
+                <td><?php echo $row['data']; ?></td>
+                <br><br>
+                <label>Noticia:</label>
+                <br><br>
+                <td><?php echo $row['noticia']; ?></td>
+            </div>
+        </tr>
+    <?php endwhile; ?>
 
 </body>
 

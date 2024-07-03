@@ -5,12 +5,12 @@ if (!isset($_SESSION['usuario_id'])) {
     exit();
 }
 include_once './config/config.php';
-include_once './classes/Usuario.php';
+include_once './classes/Noticias.php';
 
-$usuario = new Usuario($db);
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-    $usuario->deletar($id);
+$noticias = new Noticias($db);
+if (isset($_GET['idnot'])) {
+    $idnot = $_GET['idnot'];
+    $noticias->deletar($idnot);
     header('Location: portal.php');
     exit();
 }

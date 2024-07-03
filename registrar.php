@@ -27,40 +27,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
 
-    <div class="banner">
-        <video autoplay muted loop>
-            <source src="https://cdn.pixabay.com/video/2024/02/23/201735-916310640_large.mp4" type="video/mp4">
-        </video>
+    <header>
+        <h1>Portal de Notícias</h1>
+    </header>
 
-        <div class="container">
+    <div class="container">
 
 
-            <h1>Cadastro Usuário</h1>
-            <form method="POST">
-                <label for="nome">Nome:</label>
-                <input type="text" name="nome" placeholder="Nome" required>
-                <br><br>
-                <label>Sexo:</label>
-                <label for="masculino">
-                    <input type="radio" id="masculino" name="sexo" value="M" required>Masculino
-                </label>
-                <label for="feminino">
-                    <input type="radio" id="feminino" name="sexo" value="F" required>Feminino
-                </label>
-                <br><br>
-                <label for="fone">Fone:</label>
-                <input type="text" name="fone" placeholder="Fone" required>
-                <br><br>
-                <label for="email">Email:</label>
-                <input type="email" name="email" placeholder="E-mail" required>
-                <br><br>
-                <label for="senha">Senha:</label>
-                <input type="password" name="senha" placeholder="Senha" required>
-                <br><br>
-                <input type="submit" value="Salvar">
-            </form>
+        <h1>Cadastro Usuário</h1>
+        <form method="POST">
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" placeholder="Nome" required>
+            <br><br>
+            <label>Sexo:</label>
+            <label for="masculino">
+                <input type="radio" id="masculino" name="sexo" value="M" required>Masculino
+            </label>
+            <label for="feminino">
+                <input type="radio" id="feminino" name="sexo" value="F" required>Feminino
+            </label>
+            <br><br>
+            <label for="fone">Fone:</label>
+            <input type="text" name="fone" placeholder="Fone" required>
+            <br><br>
+            <label for="email">Email:</label>
+            <input type="email" name="email" placeholder="E-mail" required>
+            <br><br>
+            <label for="senha">Senha:</label>
+            <input type="password" name="senha" placeholder="Senha" required>
+            <br><br>
+            <input type="submit" value="Salvar">
+            <br><br>
+            <a href="login.php">Voltar</a>
+        </form>
 
-        </div>
     </div>
 
 </body>
